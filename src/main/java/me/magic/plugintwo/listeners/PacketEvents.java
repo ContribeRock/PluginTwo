@@ -53,5 +53,20 @@ public class PacketEvents implements Listener {
         serverPlayer.sendMessage(Component.nullToEmpty("Puffer fish stinging"), serverPlayer.getUUID());
 
     }
+    
+    @Eventhandler
+    public void onPlace(BlockPlaceEvent e) {
+     
+        Player p = e.getPlayer();
+        CraftPlayer craftPlayer = (CraftPlayer) p;
+        ServerPlayer serverPlayer = craftPlayer.getHandle();
+        
+        ServerGamePacketLIstenerImpl listener = serverPlayer.connection;
+        
+        ClientboundGameEventPacket packet = new ClientboundGameEventPacket(ClietboundGameEventPacket.DEMO_MENU, 0;
+        listener.send(packet)
+        serverPlayer.sendMessage(Component.nulltoEmpty("Demo test"), serverPlayer.getUUID());
+        
+    }
 
 }
